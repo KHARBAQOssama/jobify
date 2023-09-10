@@ -334,7 +334,7 @@
 							"left": 320,
 							"top": 104,
 							"width": 184,
-							"height": 192,
+							"height": 193,
 							"nameCompartment": {
 								"$ref": "AAAAAAGKez+LVf80XEs="
 							},
@@ -655,13 +655,30 @@
 											"height": 13,
 											"text": "+industry: Industry",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGKfzJ922uXaMU=",
+											"_parent": {
+												"$ref": "AAAAAAGKe0klyP+qYFI="
+											},
+											"model": {
+												"$ref": "AAAAAAGKfzJQ8Ws506Y="
+											},
+											"font": "Arial;13;0",
+											"left": 653,
+											"top": 306,
+											"width": 175,
+											"height": 13,
+											"text": "+image: Text",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 648,
 									"top": 121,
 									"width": 185,
-									"height": 188
+									"height": 203
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -674,7 +691,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 648,
-									"top": 309,
+									"top": 324,
 									"width": 185,
 									"height": 10
 								},
@@ -716,7 +733,7 @@
 							"left": 648,
 							"top": 96,
 							"width": 185,
-							"height": 223,
+							"height": 238,
 							"nameCompartment": {
 								"$ref": "AAAAAAGKe0klyP+lDTE="
 							},
@@ -2360,13 +2377,30 @@
 											"height": 13,
 											"text": "+resume: File",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGKfzHKw2p6YcM=",
+											"_parent": {
+												"$ref": "AAAAAAGKfvqEHkDZq9s="
+											},
+											"model": {
+												"$ref": "AAAAAAGKfzHKu2p3QUM="
+											},
+											"font": "Arial;13;0",
+											"left": 53,
+											"top": 751,
+											"width": 248.19970703125,
+											"height": 13,
+											"text": "+image: Text",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 48,
 									"top": 641,
 									"width": 258.19970703125,
-									"height": 113
+									"height": 128
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -2379,7 +2413,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 48,
-									"top": 754,
+									"top": 769,
 									"width": 258.19970703125,
 									"height": 10
 								},
@@ -2421,7 +2455,7 @@
 							"left": 48,
 							"top": 616,
 							"width": 258.19970703125,
-							"height": 148,
+							"height": 163,
 							"nameCompartment": {
 								"$ref": "AAAAAAGKfvqEHkDU1F4="
 							},
@@ -5220,8 +5254,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 215,
-									"top": 779,
+									"left": 218,
+									"top": 795,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -5241,8 +5275,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 229,
-									"top": 778,
+									"left": 232,
+									"top": 795,
 									"height": 13,
 									"alpha": 0.7853981633974483,
 									"distance": 40,
@@ -5262,8 +5296,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 188,
-									"top": 782,
+									"left": 190,
+									"top": 796,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -5369,7 +5403,7 @@
 								"$ref": "AAAAAAGKfvqEHkDTpqo="
 							},
 							"lineStyle": 1,
-							"points": "195:764;200:784;205:1159",
+							"points": "199:779;200:784;205:1159",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGKfxjyhETu3J0="
@@ -6083,6 +6117,15 @@
 							},
 							"name": "industry",
 							"type": "Industry"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGKfzJQ8Ws506Y=",
+							"_parent": {
+								"$ref": "AAAAAAGKe0klx/+ic6Y="
+							},
+							"name": "image",
+							"type": "Text"
 						}
 					]
 				},
@@ -6424,6 +6467,15 @@
 							},
 							"name": "resume",
 							"type": "File"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGKfzHKu2p3QUM=",
+							"_parent": {
+								"$ref": "AAAAAAGKfvqEHUDR8e4="
+							},
+							"name": "image",
+							"type": "Text"
 						}
 					]
 				},
