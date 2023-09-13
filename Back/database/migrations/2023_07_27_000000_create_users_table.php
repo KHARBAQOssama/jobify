@@ -18,12 +18,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('role')->nullable();
-            $table->foreign('role')->references('id')->on('roles')->onDelete('cascade');
-            $table->unsignedBigInteger('company')->nullable();
-            $table->foreign('company')->references('id')->on('companies')->onDelete('cascade');
-            $table->unsignedBigInteger('employee')->nullable();
-            $table->foreign('employee')->references('id')->on('employees')->onDelete('cascade');
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
+            $table->unsignedBigInteger('employee_id')->nullable();
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

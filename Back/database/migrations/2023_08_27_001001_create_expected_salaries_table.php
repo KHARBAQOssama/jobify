@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('expected_salaries', function (Blueprint $table) {
             $table->id();
-            $table->integer('minimum');
-            $table->integer('maximum');
-            $table->string('currency');
-            $table->string('frequency');
-            $table->unsignedBigInteger('employee');
-            $table->foreign('employee')->references('id')->on('employees')->onDelete('cascade');
+            $table->integer('minimum')->nullable();
+            $table->integer('maximum')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('frequency')->nullable();
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }

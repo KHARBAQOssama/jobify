@@ -20,14 +20,14 @@ return new class extends Migration
             $table->date('foundation_date');
             $table->text('description')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('image')->nullable();
-            $table->string('website')->nullable();
+            $table->string('image');
+            $table->string('website');
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
-            $table->unsignedBigInteger('size')->nullable();
+            $table->unsignedBigInteger('size');
             $table->foreign('size')->references('id')->on('company_sizes')->onDelete('cascade');
-            $table->unsignedBigInteger('industry')->nullable();
+            $table->unsignedBigInteger('industry');
             $table->foreign('industry')->references('id')->on('industries')->onDelete('cascade');
             $table->timestamps();
         });

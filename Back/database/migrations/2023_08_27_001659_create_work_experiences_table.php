@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('job_title');
             $table->string('company_name');
-            $table->boolean('current');
+            $table->boolean('current')->default(0);
             $table->string('from');
             $table->string('to')->nullable();
             $table->text('description')->nullable();
-            $table->unsignedBigInteger('employee');
-            $table->foreign('employee')->references('id')->on('employees')->onDelete('cascade');
-            $table->unsignedBigInteger('company');
-            $table->foreign('company')->references('id')->on('companies')->onDelete('cascade');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

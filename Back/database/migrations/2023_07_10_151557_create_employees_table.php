@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
-            $table->string('middle_name')->unique();
-            $table->string('last_name')->unique();
+            $table->string('middle_name')->nullable();
+            $table->string('last_name')->nullable();
             $table->date('birthday');
             $table->text('summary')->nullable();
             $table->string('phone_number')->nullable();
@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('resume')->nullable();
-            $table->unsignedBigInteger('contact_information')->nullable();
-            $table->foreign('contact_information')->references('id')->on('contact_information')->onDelete('cascade');
+            $table->unsignedBigInteger('contact_information_id')->nullable();
+            $table->foreign('contact_information_id')->references('id')->on('contact_information')->onDelete('cascade');
             $table->timestamps();
         });
     }
