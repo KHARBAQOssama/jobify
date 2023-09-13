@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequests\ContactInfoRequest;
 use App\Models\ContactInformation;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class ContactInformationController extends Controller
 {
@@ -46,9 +49,24 @@ class ContactInformationController extends Controller
      * @param  \App\Models\ContactInformation  $contactInformation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactInformation $contactInformation)
-    {
-        //
+    public function update(ContactInfoRequest $request, ContactInformation $contactInformation)
+    {   
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        // $inputs = $request->input();
+        // $credentials = [
+        //     'email'=>$inputs['email'],
+        //     'address'=>$inputs['address'],
+        //     'phone_number'=>$inputs['phone_number'],
+        // ];
+        $contactInformation->update(
+            $credentials
+        );
+        $contactInformation->save();
+        return $contactInformation;
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthRequests\CompletProfileRequest;
 use App\Models\Company;
+use App\Models\Industry;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -23,9 +25,31 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public static function store(CompletProfileRequest $request)
+    {   
+        $credentials = $request->only(
+            'name',
+            'email',
+            'description',
+            'phone_number',
+            'foundation_date',
+            'image',
+            'website',
+            'facebook',
+            'twitter',
+            'linkedin',
+            'size',
+        );
+
+        $industry = null;
+        if($request->input('new_industry')){
+            $industry = Industry::create(['name'=>$request->input('new_industry')]);
+            $credentials['industry'] = $industry->id;
+        }else{
+            $credentials['industry'] = $request->input('industry');
+        }
+
+        return Company::create($credentials);
     }
 
     /**

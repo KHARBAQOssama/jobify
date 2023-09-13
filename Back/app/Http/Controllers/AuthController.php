@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\CompanyController;
+use App\Http\Requests\AuthRequests\CompletProfileRequest;
+use App\Http\Requests\AuthRequests\CreateEmployeeRequest;
+use App\Http\Requests\AuthRequests\InitializeRoleRequest;
+use App\Http\Requests\AuthRequests\RegistrationRequest;
+use App\Http\Resources\UserResource;
 use App\Models\Employee;
 
 class AuthController extends Controller
@@ -26,7 +31,7 @@ class AuthController extends Controller
     }
 
 
-    public function register($request)
+    public function register(RegistrationRequest $request)
     {
         $credentials = $request->only(['email']);
         $credentials['password'] = Hash::make($request->input('password'));
@@ -52,46 +57,46 @@ class AuthController extends Controller
         return $this->respondWithToken($token);
     }
 
-    public function initializeRole()
+    public function initializeRole(InitializeRoleRequest $request)
     {
-        $credentials = request(['role_id']);
-
+        $role = $request->input('role');
         $user = JWTAuth::user();
-
-        if($user->role_id){
+        if(($role != 2 && $role !=3 ) || $user->role){
             return response()->json(['action not allowed'],401);
         }
 
-        $user->update($credentials);
+        $user->role()->associate($role);
+        $user->save();
 
         return response()->json([
             'message'=>'done',
-            'role'=>$user->role_id
+            'role'=>$user->role
         ]);
 
     }
 
-    public function completeProfile(){
+    public function completeProfile(CompletProfileRequest $request){
         
-        $role = JWTAuth::user()->role;
-        $request = request()->all();
         $user = JWTAuth::user();
-
+        $user = User::with('role')->find($user->id);
+        $role = $user->role_id;
         if(!$role){
-            return response()->json(['message'=>'not allowed','role'=>JWTAuth::user()],401);
+            return response()->json(['message'=>'not allowed'],401);
         }
-        if($role->name == 'employee'){
-            $controller = new EmployeeController;
-            $profile = $controller->createProfile($request);
-            $user->profile()->associate($profile);
+        if($user->employee || $user->company){
+            return response()->json(['message'=>'not allowed'],401);
+        }
+        if($role == 2){
+            $employee =  EmployeeController::store($request);
+            $user->employee()->associate($employee);
             $user->save();
-        }else if($role->name == 'company'){
+        }else if($role == 3){
             $controller = new CompanyController;
-            $company = $controller->createCompany($request);
+            $company = CompanyController::store($request);
             $user->company()->associate($company);
             $user->save();
         }else{
-            return response()->json(['message'=>'not allowed','role'=>$role->name],401);
+            return response()->json(['message'=>'not allowed'],401);
         }
         return response()->json($user);
 

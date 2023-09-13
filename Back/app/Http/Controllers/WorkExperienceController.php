@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequests\WorkExperience\CreateRequest;
+use App\Http\Requests\ProfileRequests\WorkExperience\CreateWorkExperienceRequest;
 use App\Models\WorkExperience;
 use Illuminate\Http\Request;
 
@@ -23,9 +25,18 @@ class WorkExperienceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateWorkExperienceRequest $request)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        $employeeController = new EmployeeController;
+        $credentials['employee_id'] = $employeeController->getEmployee()->id;
+        $workExperience = WorkExperience::create($credentials);
+        $workExperience = WorkExperience::with('employee')->find($workExperience->id);
+        return $workExperience;
     }
 
     /**

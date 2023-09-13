@@ -46,9 +46,16 @@ class ExpectedSalaryController extends Controller
      * @param  \App\Models\ExpectedSalary  $expectedSalary
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ExpectedSalary $expectedSalary)
+    public static function update( $request, ExpectedSalary $expectedSalary)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+
+        $expectedSalary->update($credentials);
+        $expectedSalary->save();
     }
 
     /**
@@ -59,6 +66,6 @@ class ExpectedSalaryController extends Controller
      */
     public function destroy(ExpectedSalary $expectedSalary)
     {
-        //
+        
     }
 }
