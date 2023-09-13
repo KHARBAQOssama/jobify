@@ -5,13 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactInformation extends Model
+class Role extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'email',
-        'phone_number',
-        'address',
+        'name',
     ];
+
+    public function users(){
+        return $this->hasMany(User::class,'role');
+    }
 }
