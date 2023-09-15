@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('proficiency');
-            $table->foreign('proficiency')->references('id')->on('proficiencies')->onDelete('cascade');
-            $table->unsignedBigInteger('employee');
-            $table->foreign('employee')->references('id')->on('employees')->onDelete('cascade');
+            $table->unsignedBigInteger('proficiency_id');
+            $table->foreign('proficiency_id')->references('id')->on('proficiencies')->onDelete('cascade');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }

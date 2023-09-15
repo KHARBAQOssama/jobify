@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequests\UpdateExpectedSalaryRequest;
 use App\Models\ExpectedSalary;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,7 @@ class ExpectedSalaryController extends Controller
      * @param  \App\Models\ExpectedSalary  $expectedSalary
      * @return \Illuminate\Http\Response
      */
-    public static function update( $request, ExpectedSalary $expectedSalary)
+    public static function update(UpdateExpectedSalaryRequest $request, ExpectedSalary $expectedSalary)
     {
         $data = $request->request->all();
         $data = $request->all();

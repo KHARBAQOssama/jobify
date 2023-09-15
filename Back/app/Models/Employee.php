@@ -22,6 +22,9 @@ class Employee extends Model
         'contact_information_id'
     ];
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
     public function contact_information(){
         return $this->belongsTo(ContactInformation::class);
     }
@@ -32,5 +35,29 @@ class Employee extends Model
 
     public function work_experiences(){
         return $this->hasMany(WorkExperience::class);
+    }
+
+    public function educations(){
+        return $this->hasMany(Education::class);
+    }
+
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
+
+    public function languages(){
+        return $this->hasMany(Language::class);
+    }
+
+    public function skills(){
+        return $this->belongsToMany(Skill::class);
+    }
+
+    public function saved_jobs(){
+        return $this->hasMany(SavedJob::class);
+    }
+
+    public function applications(){
+        return $this->hasMany(Application::class);
     }
 }

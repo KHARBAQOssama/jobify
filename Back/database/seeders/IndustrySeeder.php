@@ -98,8 +98,6 @@ class IndustrySeeder extends Seeder
         foreach ($industries as $industry) {
             DB::table('industries')->insert([
                 'name' => $industry,
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
         }
     }

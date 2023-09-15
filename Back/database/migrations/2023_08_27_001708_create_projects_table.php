@@ -22,12 +22,12 @@ return new class extends Migration
             $table->string('to')->nullable();
             $table->text('description')->nullable();
             $table->string('url')->nullable();
-            $table->unsignedBigInteger('work_experience')->nullable();
-            $table->foreign('work_experience')->references('id')->on('work_experiences')->onDelete('cascade');
-            $table->unsignedBigInteger('education')->nullable();
-            $table->foreign('education')->references('id')->on('education')->onDelete('cascade');
-            $table->unsignedBigInteger('employee');
-            $table->foreign('employee')->references('id')->on('employees')->onDelete('cascade');
+            $table->unsignedBigInteger('work_experience_id')->nullable();
+            $table->foreign('work_experience_id')->references('id')->on('work_experiences')->onDelete('cascade');
+            $table->unsignedBigInteger('education_id')->nullable();
+            $table->foreign('education_id')->references('id')->on('education')->onDelete('cascade');
+            $table->unsignedBigInteger('employee_id');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->timestamps();
         });
     }

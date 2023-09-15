@@ -13,4 +13,8 @@ class Industry extends Model
         'id',
         'name'
     ];
+
+    public function companies(){
+        return $this->hasMany(Company::class);
+    }
 }

@@ -25,16 +25,12 @@ class UserSeeder extends Seeder
                 'password' => Hash::make('password' . $i),
                 'role_id' => $faker->numberBetween(1, 3), 
                 'profile_id' => $faker->numberBetween(1, 20), 
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
             DB::table('users')->insert([
                 'email' => $faker->unique()->safeEmail,
                 'password' => Hash::make('password' . $i),
                 'role_id' => $faker->numberBetween(1, 3), 
                 'company_id' => $faker->numberBetween(1, 20), 
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
         }
     }

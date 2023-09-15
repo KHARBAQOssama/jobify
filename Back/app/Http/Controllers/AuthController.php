@@ -75,32 +75,6 @@ class AuthController extends Controller
 
     }
 
-    public function completeProfile(CompletProfileRequest $request){
-        
-        $user = JWTAuth::user();
-        $user = User::with('role')->find($user->id);
-        $role = $user->role_id;
-        if(!$role){
-            return response()->json(['message'=>'not allowed'],401);
-        }
-        if($user->employee || $user->company){
-            return response()->json(['message'=>'not allowed'],401);
-        }
-        if($role == 2){
-            $employee =  EmployeeController::store($request);
-            $user->employee()->associate($employee);
-            $user->save();
-        }else if($role == 3){
-            $controller = new CompanyController;
-            $company = CompanyController::store($request);
-            $user->company()->associate($company);
-            $user->save();
-        }else{
-            return response()->json(['message'=>'not allowed'],401);
-        }
-        return response()->json($user);
-
-    }
     /**
      * Get the authenticated User.
      *

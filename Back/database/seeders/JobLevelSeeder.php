@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\JobLevel;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class JobLevelSeeder extends Seeder
 {
@@ -15,10 +16,18 @@ class JobLevelSeeder extends Seeder
      */
     public function run()
     {
-        JobLevel::create(['name' => 'Internship / OJT']);
-        JobLevel::create(['name' => 'Entry Level / Junior, Apprentice']);
-        JobLevel::create(['name' => 'Associate / Supervisor']);
-        JobLevel::create(['name' => 'Mid-Senior Level / Manger']);
-        JobLevel::create(['name' => 'Director / Executive']);
+        $levels = [
+            'Entry Level',
+            'Mid Level',
+            'Senior Level',
+            'Director',
+            'VP or Above'
+        ];
+
+        foreach ($levels as $level) {
+            DB::table('job_levels')->insert([
+                'name' => $level,
+            ]);
+        }
     }
 }

@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('benefits', function (Blueprint $table) {
             $table->id();
-            $table->string('svg');
+            $table->string('svg')->default('12');
             $table->string('title');
             $table->text('description');
-            $table->unsignedBigInteger('company')->nullable();
-            $table->foreign('company')->references('id')->on('companies')->onDelete('cascade');
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

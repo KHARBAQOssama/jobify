@@ -4,61 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\SavedJob;
 use Illuminate\Http\Request;
+use Illuminate\Support\Js;
 
 class SavedJobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
-    {
-        //
+    {   
+        $employeeController = new EmployeeController;
+        $employeeId = $employeeController->getEmployee()->id;
+        $savedJobs = SavedJob::with('job')->where('employee_id',$employeeId)->get();
+        return response()->json(['savedJobs'=>$savedJobs]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SavedJob  $savedJob
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SavedJob $savedJob)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SavedJob  $savedJob
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SavedJob $savedJob)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SavedJob  $savedJob
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SavedJob $savedJob)
-    {
-        //
+        $jobId = $request->input('job_id');
+        $credentials['job_id'] = $jobId;
+        $employeeController = new EmployeeController;
+        $employeeId = $employeeController->getEmployee()->id;
+        $credentials['employee_id'] = $employeeId;
+        $savedJob = SavedJob::where('employee_id',$employeeId)
+                            ->where('job_id',$jobId)
+                            ->first();
+        if($savedJob){
+            SavedJob::find($savedJob->id)->delete();
+            return "removed";
+        }else{
+            $saved_job = SavedJob::create($credentials);
+            return $saved_job;
+        }
+        
     }
 }

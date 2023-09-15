@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequests\CreateBenefitRequest;
+use App\Http\Requests\CompanyRequests\UpdateBenefitRequest;
 use App\Models\Benefit;
 use Illuminate\Http\Request;
 
@@ -23,9 +25,17 @@ class BenefitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateBenefitRequest $request)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        $controller = new CompanyController;
+        $credentials['company_id'] = $controller->getCompany()->id;
+        $benefit = Benefit::create($credentials);
+        return $benefit;
     }
 
     /**
@@ -46,9 +56,17 @@ class BenefitController extends Controller
      * @param  \App\Models\Benefit  $benefit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Benefit $benefit)
+    public function update(UpdateBenefitRequest $request, Benefit $benefit)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+
+        $benefit->update($credentials);
+        $benefit->save();
+        return $benefit;
     }
 
     /**
@@ -59,6 +77,7 @@ class BenefitController extends Controller
      */
     public function destroy(Benefit $benefit)
     {
-        //
+        $benefit->delete();
+        return "deleted";
     }
 }

@@ -10,6 +10,7 @@ use App\Models\ContactInformation;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\AuthRequests\CompletProfileRequest;
 use App\Http\Requests\ProfileRequests\UpdateExpectedSalaryRequest;
+use App\Http\Requests\ProfileRequests\UpdateProfileRequest;
 use App\Http\Requests\ProfileRequests\UpdateSummaryRequest;
 use App\Models\ExpectedSalary;
 
@@ -28,7 +29,18 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employee::with(
+
+                                    'contact_information',
+                                    'expected_salary',
+                                    'work_experiences',
+                                    'educations.education_attainment',
+                                    'projects',
+                                    'languages.proficiency',
+                                    'skills'
+                                    
+                                )->get();
+        return response()->json(['employees'=>$employees]);
     }
 
     public function getEmployee(){
@@ -93,7 +105,7 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public static function update(UpdateProfileRequest $request, Employee $employee)
     {
         //
     }

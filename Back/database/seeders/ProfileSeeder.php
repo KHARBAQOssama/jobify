@@ -29,8 +29,6 @@ class ProfileSeeder extends Seeder
                 'occupation' => $faker->jobTitle,
                 'summary' => $faker->text,
                 'image' => $faker->imageUrl(),
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
         }
     }

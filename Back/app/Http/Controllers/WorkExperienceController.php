@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequests\WorkExperience\CreateRequest;
 use App\Http\Requests\ProfileRequests\WorkExperience\CreateWorkExperienceRequest;
+use App\Http\Requests\ProfileRequests\WorkExperience\UpdateWorkExperienceRequest;
 use App\Models\WorkExperience;
 use Illuminate\Http\Request;
 
 class WorkExperienceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -57,9 +62,16 @@ class WorkExperienceController extends Controller
      * @param  \App\Models\WorkExperience  $workExperience
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WorkExperience $workExperience)
+    public function update(UpdateWorkExperienceRequest $request, WorkExperience $workExperience)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        $workExperience->update($credentials);
+        $workExperience->save;
+        return "updated successfully";
     }
 
     /**
@@ -70,6 +82,7 @@ class WorkExperienceController extends Controller
      */
     public function destroy(WorkExperience $workExperience)
     {
-        //
+        $workExperience->delete();
+        return "deleted successfully";
     }
 }

@@ -41,8 +41,8 @@ class CompletProfileRequest extends FormRequest
                 'foundation_date' => 'required|date',
                 'description' => 'nullable|string',
                 'website' => 'required|url',
-                'size' => 'required|exists:company_sizes,id',
-                'industry' => 'nullable|exists:industries,id',
+                'company_size_id' => 'required|exists:company_sizes,id',
+                'industry_id' => 'nullable|exists:industries,id',
             ]);
         } elseif ($user->role_id == 2) {
             return array_merge($commonRules, [

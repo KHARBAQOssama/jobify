@@ -29,8 +29,6 @@ class CompanySizesSeeder extends Seeder
         foreach ($sizeRanges as $sizeRange) {
             DB::table('company_sizes')->insert([
                 'value' => $sizeRange,
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
         }
     }

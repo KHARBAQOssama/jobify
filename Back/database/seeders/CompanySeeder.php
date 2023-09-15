@@ -37,8 +37,6 @@ class CompanySeeder extends Seeder
                 'social_media_facebook' => $faker->url,
                 'social_media_twitter' => $faker->url,
                 'social_media_linkedin' => $faker->url,
-                'created_at' => now(),
-                'updated_at' => now(),
             ]);
         }
     }

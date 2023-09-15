@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('linkedin')->nullable();
-            $table->unsignedBigInteger('size');
-            $table->foreign('size')->references('id')->on('company_sizes')->onDelete('cascade');
-            $table->unsignedBigInteger('industry');
-            $table->foreign('industry')->references('id')->on('industries')->onDelete('cascade');
+            $table->unsignedBigInteger('company_size_id');
+            $table->foreign('company_size_id')->references('id')->on('company_sizes')->onDelete('cascade');
+            $table->unsignedBigInteger('industry_id');
+            $table->foreign('industry_id')->references('id')->on('industries')->onDelete('cascade');
             $table->timestamps();
         });
     }

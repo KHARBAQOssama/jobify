@@ -17,9 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('full_name');
             $table->string('image');
-            $table->text('description');
-            $table->unsignedBigInteger('company')->nullable();
-            $table->foreign('company')->references('id')->on('companies')->onDelete('cascade');
+            $table->string('post');
+            $table->string('instagram')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->timestamps();
         });
     }

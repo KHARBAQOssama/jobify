@@ -5,7 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profiency extends Model
+class Proficiency extends Model
 {
     use HasFactory;
+    
+    public function languages(){
+        return $this->hasMany(Language::class);
+    }
 }

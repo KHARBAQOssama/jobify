@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequests\Skills\SkillsRequest;
 use App\Models\Skill;
 use Illuminate\Http\Request;
 
@@ -23,9 +24,21 @@ class SkillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SkillsRequest $request)
     {
-        //
+        $inputSkills = $request->input('skills');
+
+        $skillIds = collect($inputSkills)->map(function ($skillName) {
+            return Skill::firstOrCreate(['name' => $skillName])->id;
+        });
+
+        $employeeController = new EmployeeController;
+        $employee = $employeeController->getEmployee();
+        $employee->skills()->detach();
+
+        $employee->skills()->sync($skillIds);
+
+        return response()->json(['message' => 'Skills updated successfully']);
     }
 
     /**

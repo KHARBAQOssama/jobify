@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobRequests\CreateJobRequest;
+use App\Http\Requests\JobRequests\UpdateJobRequest;
+use App\Models\Category;
 use App\Models\Job;
 use Illuminate\Http\Request;
 
@@ -14,7 +17,13 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = Job::with(
+                    'job_level',
+                    'employment_type',
+                    'category',
+                    'location',
+                )->get();
+    return response()->json(['jobs'=>$jobs]);
     }
 
     /**
@@ -23,9 +32,25 @@ class JobController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateJobRequest $request)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        $category = null;
+        if($request->input('new_category')){
+            $category = Category::create(['name'=>$request->input('new_category')]);
+            $credentials['category_id'] = $category->id;
+        }else{
+            $credentials['category_id'] = $request->input('category_id');
+        }
+        $controller = new CompanyController;
+        $credentials['company_id'] = $controller->getCompany()->id;
+        $job = Job::create($credentials);
+        return $job;
+        
     }
 
     /**
@@ -46,9 +71,23 @@ class JobController extends Controller
      * @param  \App\Models\Job  $job
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Job $job)
+    public function update(UpdateJobRequest $request, Job $job)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        $category = null;
+        if($request->input('new_category')){
+            $category = Category::create(['name'=>$request->input('new_category')]);
+            $credentials['category_id'] = $category->id;
+        }else if($request->input('category_id')){
+            $credentials['category_id'] = $request->input('category_id');
+        }
+        $job->update($credentials);
+        $job->save();
+        return $job;
     }
 
     /**
@@ -59,6 +98,7 @@ class JobController extends Controller
      */
     public function destroy(Job $job)
     {
-        //
+        $job->delete();
+        return "deleted";
     }
 }

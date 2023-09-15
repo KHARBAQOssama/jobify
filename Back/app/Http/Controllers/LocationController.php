@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyRequests\UpdateLocationRequest;
+use App\Models\Company;
+use App\Models\Language;
 use App\Models\Location;
-use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
@@ -14,7 +16,7 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,9 +25,17 @@ class LocationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UpdateLocationRequest $request)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        $controller = new CompanyController;
+        $credentials['company_id'] = $controller->getCompany()->id;
+        $location = Location::create($credentials);
+        return $location;
     }
 
     /**
@@ -46,9 +56,17 @@ class LocationController extends Controller
      * @param  \App\Models\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Location $location)
+    public function update(UpdateLocationRequest $request, Location $location)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+
+        $location->update($credentials);
+        $location->save();
+        return $location;
     }
 
     /**

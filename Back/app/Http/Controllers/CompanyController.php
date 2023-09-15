@@ -3,12 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequests\CompletProfileRequest;
+use App\Http\Requests\ProfileRequests\UpdateProfileRequest;
 use App\Models\Company;
 use App\Models\Industry;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CompanyController extends Controller
 {
+    public static $company;
+
+    public function __construct()
+    {
+        self::$company = User::with('company')->find(JWTAuth::user()->id)->company;
+    }
+
+    public function getCompany(){
+        return self::$company;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +29,19 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        //
+        $companies = Company::with([
+                'locations',
+                'team_members',
+                'jobs' => function ($query) {
+                    $query->with([
+                        'job_level',
+                        'employment_type',
+                        'category',
+                        'location',
+                    ]);
+                },
+            ])->get();
+        return response()->json(['companies'=>$companies]);
     }
 
     /**
@@ -38,15 +63,15 @@ class CompanyController extends Controller
             'facebook',
             'twitter',
             'linkedin',
-            'size',
+            'company_size_id',
         );
 
         $industry = null;
         if($request->input('new_industry')){
             $industry = Industry::create(['name'=>$request->input('new_industry')]);
-            $credentials['industry'] = $industry->id;
+            $credentials['industry_id'] = $industry->id;
         }else{
-            $credentials['industry'] = $request->input('industry');
+            $credentials['industry_id'] = $request->input('industry_id');
         }
 
         return Company::create($credentials);
@@ -70,9 +95,22 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public static function update(UpdateProfileRequest $request, Company $company)
     {
-        //
+        $data = $request->request->all();
+        $data = $request->all();
+        $credentials = array_filter($data, function($value) {
+            return $value !== null;
+        });
+        if($request->input('new_industry')){
+            $industry = Industry::create(['name'=>$request->input('new_industry')]);
+            $credentials['industry_id'] = $industry->id;
+        }else if($request->input('industry_id')){
+            $credentials['industry_id'] = $request->input('industry_id');
+        }
+
+        $company->update($credentials);
+        $company->save();
     }
 
     /**

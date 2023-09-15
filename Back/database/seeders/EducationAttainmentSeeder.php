@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\EducationAttainment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 
 class EducationAttainmentSeeder extends Seeder
 {
@@ -15,11 +16,16 @@ class EducationAttainmentSeeder extends Seeder
      */
     public function run()
     {
-        EducationAttainment::create(['name'=>"Less Than High School"]);
-        EducationAttainment::create(['name'=>"High School"]);
-        EducationAttainment::create(['name'=>"Associate's Degree"]);
-        EducationAttainment::create(['name'=>"Bachelor's Degree"]);
-        EducationAttainment::create(['name'=>"Master's Degree"]);
-        EducationAttainment::create(['name'=>"Doctoral or Professional Degree"]);
+        $education_attainments = [
+            "Less Than High School",
+            "High School",
+            "Associate's Degree",
+            "Bachelor's Degree",
+            "Master's Degree",
+            "Doctoral or Professional Degree",];
+
+        foreach ($education_attainments as $attainment) {
+            DB::table('education_attainments')->insert(['name'=>$attainment]);
+        }
     }
 }

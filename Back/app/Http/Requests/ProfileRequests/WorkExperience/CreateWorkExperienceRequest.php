@@ -26,9 +26,9 @@ class CreateWorkExperienceRequest extends FormRequest
         return [
             'job_title' => 'required|string|max:255',
             'company_name' => 'required|string|max:255',
-            'current' => 'nullable|boolean',
+            'current' => 'required|boolean',
             'from' => 'required|string',
-            'to' => 'nullable|string',  
+            'to' => 'nullable|string|required_if:current,false',  
             'description' => 'nullable|string',
             'company_id' => 'nullable|exists:companies,id',
         ];

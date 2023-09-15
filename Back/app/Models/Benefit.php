@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Benefit extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'svg',
+        'title',
+        'description',
+        'company_id',
+    ];
+
+    public function company(){
+        return $this->belongsTo(Company::class);
+    }
 }
