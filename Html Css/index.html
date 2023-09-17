@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <div class="logo-container">
+                <img src="./Group2.png" alt="logo">
+                <h1 class="logo-word">
+                    Jobify
+                </h1>
+            </div>
+            <div class="navigation close">
+                <div class="links">
+                    <a href="./home.html">Find Jobs</a>
+                    <a href="">Browse Companies</a>
+                </div>
+                <div>
+                    <button class="button2">Login</button>
+                    <button class="button1">Sign Up</button>
+                </div>
+            </div>
+            <button class="toggle" onclick="toggleNav()">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M24,3.5c0,.83-.67,1.5-1.5,1.5H1.5c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5H22.5c.83,0,1.5,.67,1.5,1.5ZM6.5,20H1.5c-.83,0-1.5,.67-1.5,1.5s.67,1.5,1.5,1.5H6.5c.83,0,1.5-.67,1.5-1.5s-.67-1.5-1.5-1.5ZM14.5,11H1.5c-.83,0-1.5,.67-1.5,1.5s.67,1.5,1.5,1.5H14.5c.83,0,1.5-.67,1.5-1.5s-.67-1.5-1.5-1.5Z"/></svg>
+            </button>
+        </nav>
+    </div>
+
+    <div class="landing-container">  
+        <div class="landing">
+            <p class="big-title">Discover<br>more than<br><span>3000+ Jobs</span></p>
+            <p class="small-about">Great platform for the job seeker that searching for new career heights and passionate about startups.</p>
+            <div class="filter-container">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></svg>
+                    <input type="text" placeholder="Job title or keyword">
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></svg>
+                    <select>
+                        <option value="">Florida, USA</option>
+                    </select>
+                </div>
+                <button class="button1">Search</button>
+            </div>
+            <p class="suggestions">Popular : UI Designer, UX Researcher, Android, Admin</p>
+        </div>
+        <div class="landing-img-container">
+            <img class="landing-guy" src="./landing-guy.png" alt="">
+        </div>
+    </div>
+    <div class="helped-grow">
+        <p class="suggestions">Companies we helped grow</p>
+        <div class="companies">
+            <img src="./logo-laravel-grey.png" alt="">
+            <img src="./vue-js-logo-F0B39D381A-seeklogo.com.png" alt="">
+            <img src="./vuex-logo.png" alt="">
+            <img src="./vscode.png" alt="">
+            <img src="./6postman.png" alt="">
+        </div>
+    </div>
+    <section class="categories">
+        <div class="header">
+           <h1>Explore by <span>category</span></h1>
+           <a href="">Show all jobs -></a>  
+        </div>
+        <div class="categories-container">
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technologyazertyu</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+            <div class="category">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512">
+                    <path d="M13.845,17.267l-3.262,3.262A5.028,5.028,0,0,1,3.472,13.42l3.262-3.265A1,1,0,0,0,5.319,8.741L2.058,12.006A7.027,7.027,0,0,0,12,21.943l3.262-3.262a1,1,0,0,0-1.414-1.414Z"/><path d="M21.944,2.061A6.979,6.979,0,0,0,16.975,0h0a6.983,6.983,0,0,0-4.968,2.057L8.74,5.32a1,1,0,0,0,1.414,1.415l3.265-3.262A4.993,4.993,0,0,1,16.973,2h0a5.028,5.028,0,0,1,3.554,8.583l-3.262,3.262A1,1,0,1,0,18.68,15.26L21.942,12A7.037,7.037,0,0,0,21.944,2.061Z"/><path d="M14.293,8.293l-6,6a1,1,0,1,0,1.414,1.414l6-6a1,1,0,0,0-1.414-1.414Z"/>
+                </svg>
+                <div class="category-info">
+                    <h1>Technology</h1>
+                    <p>140 jobs available <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" id="arrow-circle-down" viewBox="0 0 24 24" width="512" height="512"><path d="M0,12A12,12,0,1,0,12,0,12.013,12.013,0,0,0,0,12Zm22,0A10,10,0,1,1,12,2,10.011,10.011,0,0,1,22,12Z"/><path d="M16,12a2.993,2.993,0,0,1-.752,1.987c-.291.327-.574.637-.777.84L11.647,17.7a1,1,0,1,1-1.426-1.4L13.05,13.42c.187-.188.441-.468.7-.759a1,1,0,0,0,0-1.323c-.258-.29-.512-.57-.693-.752L10.221,7.7a1,1,0,1,1,1.426-1.4l2.829,2.879c.2.2.48.507.769.833A2.99,2.99,0,0,1,16,12Z"/></svg>
+                    </span></p>
+                </div>
+            </div>
+        </div>
+       
+    </section>
+    <section class="self-ads">
+        <div class="ads-container">
+            <div class="start-posting">
+                <h1>Start posting jobs today</h1>
+                <p>start posting jobs for only 10$</p>
+                <button>Sign Up For Free</button>
+            </div>
+            <div class="dashboard-image-container">
+                <img src="./3.1 Dashboard Company.png" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="featured-jobs">
+        <div class="header">
+           <h1>Featured <span>jobs</span></h1>
+           <a href="">Show all jobs -></a>  
+        </div>
+        <div class="jobs">
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="latest-jobs-open">
+        <div class="header">
+            <h1>Latest <span>jobs open</span></h1>
+            <a href="">Show all jobs -></a>  
+        </div>
+        <div class="jobs">
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+            <div class="job">
+                <div class="img-container">
+                    <img src="./vuex-logo.png" alt="">
+                </div>
+                <div>
+                    <div class="title-location">
+                        <h2 class="title">Email Marketing</h2>
+                        <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                    </div>
+                    <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                    <div class="job-categories">
+                        <span class="employment-type">Full-Time</span>
+                        <span>Marketing</span>
+                        <span>Design</span>
+                        <span class="more">+2</span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <section>
+            <div>
+                <h1>
+                    <img src="./Group2.png" alt="">
+                    jobify
+                </h1>            
+                <p class="small-about">Great platform for the job seeker that searching for new career heights and passionate about startups.</p>
+            </div>
+            <div class="lists-container">
+                <div>
+                    <h3>About</h3>
+                    <ul>
+                        <li>Companies</li>
+                        <li>Pricing</li>
+                        <li>Terms</li>
+                        <li>Advice</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Resources</h3>
+                    <ul>
+                        <li>Help Docs</li>
+                        <li>Guide</li>
+                        <li>Updates</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="get-notified">
+                <h3>Resources</h3>
+                <p >The latest job news, articles, sent to your inbox weekly</p>
+                <div class="email-input">
+                    <input type="text" placeholder="Email Address">
+                    <button class="button1">Subscribe</button>
+                </div>
+            </div>
+        </section>
+        <div class="rights-social">
+             <p>2023 @ Jobify. All rights reserved.</p>
+             <div class="socials">
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="512" height="512">
+                        <g>
+                            <path d="M24,12.073c0,5.989-4.394,10.954-10.13,11.855v-8.363h2.789l0.531-3.46H13.87V9.86c0-0.947,0.464-1.869,1.95-1.869h1.509   V5.045c0,0-1.37-0.234-2.679-0.234c-2.734,0-4.52,1.657-4.52,4.656v2.637H7.091v3.46h3.039v8.363C4.395,23.025,0,18.061,0,12.073   c0-6.627,5.373-12,12-12S24,5.445,24,12.073z"/>
+                        </g>
+                        </svg>
+                </span></a>
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24">
+                        <polygon points="6.861 6.159 15.737 17.764 17.097 17.764 8.322 6.159 6.861 6.159"/>
+                        <path d="m12,0C5.373,0,0,5.373,0,12s5.373,12,12,12,12-5.373,12-12S18.627,0,12,0Zm3.063,19.232l-3.87-5.055-4.422,5.055h-2.458l5.733-6.554-6.046-7.91h5.062l3.494,4.621,4.043-4.621h2.455l-5.361,6.126,6.307,8.337h-4.937Z"/>
+                      </svg>
+                </span></a>
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="512" height="512">
+                        <g id="Artboard">
+                            <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z    M17.562,8.161c-0.18,1.897-0.962,6.502-1.359,8.627c-0.168,0.9-0.5,1.201-0.82,1.23c-0.697,0.064-1.226-0.461-1.901-0.903   c-1.056-0.692-1.653-1.123-2.678-1.799c-1.185-0.781-0.417-1.21,0.258-1.911c0.177-0.184,3.247-2.977,3.307-3.23   c0.007-0.032,0.015-0.15-0.056-0.212s-0.174-0.041-0.248-0.024c-0.106,0.024-1.793,1.139-5.062,3.345   c-0.479,0.329-0.913,0.489-1.302,0.481c-0.428-0.009-1.252-0.242-1.865-0.442c-0.751-0.244-1.349-0.374-1.297-0.788   c0.027-0.216,0.324-0.437,0.892-0.663c3.498-1.524,5.831-2.529,6.998-3.015c3.333-1.386,4.025-1.627,4.477-1.635   C17.472,7.214,17.608,7.681,17.562,8.161z"/>
+                        </g>
+                    </svg>
+                </span></a>
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="512" height="512">
+                        <g>
+                            <path d="M9.25,14.5C8.561,14.5,8,13.939,8,13.25C8,12.561,8.561,12,9.25,12c0.689,0,1.25,0.561,1.25,1.25   C10.5,13.939,9.939,14.5,9.25,14.5z"/>
+                            <path d="M14.97,16.095c0.127,0.127,0.126,0.332,0,0.458c-0.853,0.852-2.488,0.918-2.969,0.918c-0.481,0-2.116-0.066-2.968-0.918   c-0.127-0.127-0.127-0.331,0-0.458c0.127-0.127,0.331-0.127,0.458,0c0.538,0.538,1.688,0.728,2.51,0.728   c0.822,0,1.972-0.191,2.511-0.729C14.639,15.968,14.844,15.968,14.97,16.095z"/>
+                            <path d="M16,13.25c0,0.69-0.561,1.25-1.25,1.25c-0.69,0-1.25-0.561-1.25-1.25c0-0.689,0.561-1.25,1.25-1.25   C15.439,12,16,12.561,16,13.25z"/>
+                            <path d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M18.957,13.599   c0.027,0.173,0.041,0.348,0.041,0.526c0,2.692-3.134,4.875-7,4.875c-3.866,0-7-2.183-7-4.875c0-0.179,0.015-0.355,0.042-0.529   C4.431,13.322,4.006,12.711,4.006,12c0-0.967,0.783-1.75,1.75-1.75c0.47,0,0.896,0.186,1.21,0.488   c1.212-0.873,2.886-1.431,4.749-1.483l0.89-4.185c0.017-0.081,0.066-0.152,0.135-0.197c0.069-0.045,0.154-0.061,0.235-0.044   l2.908,0.618C16.088,5.036,16.509,4.75,17,4.75c0.69,0,1.25,0.56,1.25,1.25S17.69,7.25,17,7.25c-0.67,0-1.213-0.529-1.244-1.191   l-2.604-0.554l-0.797,3.75c1.836,0.064,3.484,0.622,4.68,1.485c0.315-0.303,0.742-0.491,1.214-0.491c0.967,0,1.75,0.783,1.75,1.75   C19.998,12.714,19.57,13.327,18.957,13.599z"/>
+                        </g>
+                    </svg>
+                </span></a>
+             </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
