@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="homeStyle.css">
+</head>
+<body>
+    <div class="nav-container">
+        <nav>
+            <div class="logo-container">
+                <img src="./Group2.png" alt="logo">
+                <h1 class="logo-word">
+                    Jobify
+                </h1>
+            </div>
+            <div class="navigation close">
+                <div class="links">
+                    <a href="">Find Jobs</a>
+                    <a href="">Browse Companies</a>
+                </div>
+                <div>
+                    <button class="button2">Login</button>
+                    <button class="button1">Sign Up</button>
+                </div>
+            </div>
+            <button class="toggle" onclick="toggleNav()">
+                <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M24,3.5c0,.83-.67,1.5-1.5,1.5H1.5c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5H22.5c.83,0,1.5,.67,1.5,1.5ZM6.5,20H1.5c-.83,0-1.5,.67-1.5,1.5s.67,1.5,1.5,1.5H6.5c.83,0,1.5-.67,1.5-1.5s-.67-1.5-1.5-1.5ZM14.5,11H1.5c-.83,0-1.5,.67-1.5,1.5s.67,1.5,1.5,1.5H14.5c.83,0,1.5-.67,1.5-1.5s-.67-1.5-1.5-1.5Z"/></svg>
+            </button>
+        </nav>
+    </div>
+    <section class="landing-filter-container">
+        <div class="landing-filter">
+            <p class="big-title">Find your <span>dream job</span></p>
+            <p class="small-about">Find your next career at companies like HubSopt, Nike, and Dropbox.</p>
+            <div class="filter-container">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></svg>
+                    <input type="text" placeholder="Job title or keyword">
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="512" height="512"><path d="M23.707,22.293l-5.969-5.969a10.016,10.016,0,1,0-1.414,1.414l5.969,5.969a1,1,0,0,0,1.414-1.414ZM10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18Z"/></svg>
+                    <select>
+                        <option value="">Florida, USA</option>
+                    </select>
+                </div>
+                <button class="button1">Search</button>
+            </div>
+            <p class="suggestions">Popular : UI Designer, UX Researcher, Android, Admin</p>
+        </div>
+    </section>
+    <section class="results-displayer">
+        <div>
+            <h1 onclick="toggleFilter()"><span><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M24,3c0,.55-.45,1-1,1H1c-.55,0-1-.45-1-1s.45-1,1-1H23c.55,0,1,.45,1,1ZM15,20h-6c-.55,0-1,.45-1,1s.45,1,1,1h6c.55,0,1-.45,1-1s-.45-1-1-1Zm4-9H5c-.55,0-1,.45-1,1s.45,1,1,1h14c.55,0,1-.45,1-1s-.45-1-1-1Z"/></svg> </span> More Filters</h1>
+            <div>
+                <div class="filter-category">
+                    <div class="filter-title" onclick="toggleFilterOption(this)">
+                      <h4>Type of Employment</h4>
+                      <span >
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="512" height="512"><path d="M19.061,7.854a1.5,1.5,0,0,0-2.122,0l-4.586,4.585a.5.5,0,0,1-.707,0L7.061,7.854A1.5,1.5,0,0,0,4.939,9.975l4.586,4.586a3.5,3.5,0,0,0,4.95,0l4.586-4.586A1.5,1.5,0,0,0,19.061,7.854Z"/></svg>
+                    </span>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Full-Time (3)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Part-Time (5)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Remote (2)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Internship (24)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Contract (3)</label>
+                        </div>  
+                    </div>
+                </div>
+                <div class="filter-category">
+                    <div class="filter-title" onclick="toggleFilterOption(this)">
+                      <h4>Categories</h4>
+                      <span >
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="512" height="512"><path d="M19.061,7.854a1.5,1.5,0,0,0-2.122,0l-4.586,4.585a.5.5,0,0,1-.707,0L7.061,7.854A1.5,1.5,0,0,0,4.939,9.975l4.586,4.586a3.5,3.5,0,0,0,4.95,0l4.586-4.586A1.5,1.5,0,0,0,19.061,7.854Z"/></svg>
+                    </span>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Design (3)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Sales (5)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Marketing (2)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Business (24)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Human Resource (3)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Finance (5)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Engineering (2)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Technology (24)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-category">
+                    <div class="filter-title" onclick="toggleFilterOption(this)">
+                      <h4>Job Level</h4>
+                      <span >
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="512" height="512"><path d="M19.061,7.854a1.5,1.5,0,0,0-2.122,0l-4.586,4.585a.5.5,0,0,1-.707,0L7.061,7.854A1.5,1.5,0,0,0,4.939,9.975l4.586,4.586a3.5,3.5,0,0,0,4.95,0l4.586-4.586A1.5,1.5,0,0,0,19.061,7.854Z"/></svg>
+                    </span>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Entry Level (3)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Mid Level (5)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Senior Level (2)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">Director (24)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">VP or Above (3)</label>
+                        </div>  
+                    </div>
+                </div>
+                <div class="filter-category">
+                    <div class="filter-title" onclick="toggleFilterOption(this)">
+                      <h4>Salary Range</h4>
+                      <span >
+                        <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="512" height="512"><path d="M19.061,7.854a1.5,1.5,0,0,0-2.122,0l-4.586,4.585a.5.5,0,0,1-.707,0L7.061,7.854A1.5,1.5,0,0,0,4.939,9.975l4.586,4.586a3.5,3.5,0,0,0,4.95,0l4.586-4.586A1.5,1.5,0,0,0,19.061,7.854Z"/></svg>
+                    </span>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">$700 - $1000 (3)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">$1000 - $1500 (5)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">$1500 - $2000 (2)</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" name="" id="">
+                            <label for="">$3000 or Above (24)</label>
+                        </div> 
+                    </div>
+                </div>
+                <button class="button1 apply-filter">
+                    Apply Filter
+                </button>
+            </div>
+        </div>
+        <section class="search-results">
+            <div class="header">
+                <div>
+                    <h1>All Jobs</h1>
+                    <p>Showing 73 results</p>
+                </div>
+                <div>
+                    <button>
+                        1
+                    </button>
+                    <button>2</button>
+                </div>
+            </div>
+            <div class="items">
+                <div class="job">
+                    <div class="img-container">
+                        <img src="./vuex-logo.png" alt="">
+                    </div>
+                    <div>
+                        <div class="title-location">
+                            <h2 class="title">Email Marketing</h2>
+                            <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                        </div>
+                        <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                        <div class="job-categories">
+                            <span class="employment-type">Full-Time</span>
+                            <span>Marketing</span>
+                            <span>Design</span>
+                            <span class="more">+2</span>
+                        </div> 
+                    </div>
+                    <div class="application-process">
+                        <button class="button1">Apply</button>
+                        <div class="progress">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p><span>44 applied</span> of 100 capacity</p>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="img-container">
+                        <img src="./vuex-logo.png" alt="">
+                    </div>
+                    <div>
+                        <div class="title-location">
+                            <h2 class="title">Email Marketing</h2>
+                            <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                        </div>
+                        <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                        <div class="job-categories">
+                            <span class="employment-type">Full-Time</span>
+                            <span>Marketing</span>
+                            <span>Design</span>
+                            <span class="more">+2</span>
+                        </div> 
+                    </div>
+                    <div class="application-process">
+                        <button class="button1">Apply</button>
+                        <div class="progress">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p><span>44 applied</span> of 100 capacity</p>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="img-container">
+                        <img src="./vuex-logo.png" alt="">
+                    </div>
+                    <div>
+                        <div class="title-location">
+                            <h2 class="title">Email Marketing</h2>
+                            <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                        </div>
+                        <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                        <div class="job-categories">
+                            <span class="employment-type">Full-Time</span>
+                            <span>Marketing</span>
+                            <span>Design</span>
+                            <span class="more">+2</span>
+                        </div> 
+                    </div>
+                    <div class="application-process">
+                        <button class="button1">Apply</button>
+                        <div class="progress">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p><span>44 applied</span> of 100 capacity</p>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="img-container">
+                        <img src="./vuex-logo.png" alt="">
+                    </div>
+                    <div>
+                        <div class="title-location">
+                            <h2 class="title">Email Marketing</h2>
+                            <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                        </div>
+                        <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                        <div class="job-categories">
+                            <span class="employment-type">Full-Time</span>
+                            <span>Marketing</span>
+                            <span>Design</span>
+                            <span class="more">+2</span>
+                        </div> 
+                    </div>
+                    <div class="application-process">
+                        <button class="button1">Apply</button>
+                        <div class="progress">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p><span>44 applied</span> of 100 capacity</p>
+                    </div>
+                </div>
+                <div class="job">
+                    <div class="img-container">
+                        <img src="./vuex-logo.png" alt="">
+                    </div>
+                    <div>
+                        <div class="title-location">
+                            <h2 class="title">Email Marketing</h2>
+                            <p class="location"><span>Revolut </span><span>Madrid, Spain</span></p>
+                        </div>
+                        <p class="job-description">Revolut is looking for Email Marketing to help team management</p>
+                        <div class="job-categories">
+                            <span class="employment-type">Full-Time</span>
+                            <span>Marketing</span>
+                            <span>Design</span>
+                            <span class="more">+2</span>
+                        </div> 
+                    </div>
+                    <div class="application-process">
+                        <button class="button1">Apply</button>
+                        <div class="progress">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p><span>44 applied</span> of 100 capacity</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <footer>
+        <section>
+            <div>
+                <h1>
+                    <img src="./Group2.png" alt="">
+                    jobify
+                </h1>            
+                <p class="small-about">Great platform for the job seeker that searching for new career heights and passionate about startups.</p>
+            </div>
+            <div class="lists-container">
+                <div>
+                    <h3>About</h3>
+                    <ul>
+                        <li>Companies</li>
+                        <li>Pricing</li>
+                        <li>Terms</li>
+                        <li>Advice</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Resources</h3>
+                    <ul>
+                        <li>Help Docs</li>
+                        <li>Guide</li>
+                        <li>Updates</li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="get-notified">
+                <h3>Resources</h3>
+                <p >The latest job news, articles, sent to your inbox weekly</p>
+                <div class="email-input">
+                    <input type="text" placeholder="Email Address">
+                    <button class="button1">Subscribe</button>
+                </div>
+            </div>
+        </section>
+        <div class="rights-social">
+             <p>2023 @ Jobify. All rights reserved.</p>
+             <div class="socials">
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="512" height="512">
+                        <g>
+                            <path d="M24,12.073c0,5.989-4.394,10.954-10.13,11.855v-8.363h2.789l0.531-3.46H13.87V9.86c0-0.947,0.464-1.869,1.95-1.869h1.509   V5.045c0,0-1.37-0.234-2.679-0.234c-2.734,0-4.52,1.657-4.52,4.656v2.637H7.091v3.46h3.039v8.363C4.395,23.025,0,18.061,0,12.073   c0-6.627,5.373-12,12-12S24,5.445,24,12.073z"/>
+                        </g>
+                        </svg>
+                </span></a>
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Capa_1" data-name="Capa 1" viewBox="0 0 24 24">
+                        <polygon points="6.861 6.159 15.737 17.764 17.097 17.764 8.322 6.159 6.861 6.159"/>
+                        <path d="m12,0C5.373,0,0,5.373,0,12s5.373,12,12,12,12-5.373,12-12S18.627,0,12,0Zm3.063,19.232l-3.87-5.055-4.422,5.055h-2.458l5.733-6.554-6.046-7.91h5.062l3.494,4.621,4.043-4.621h2.455l-5.361,6.126,6.307,8.337h-4.937Z"/>
+                      </svg>
+                </span></a>
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="512" height="512">
+                        <g id="Artboard">
+                            <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z    M17.562,8.161c-0.18,1.897-0.962,6.502-1.359,8.627c-0.168,0.9-0.5,1.201-0.82,1.23c-0.697,0.064-1.226-0.461-1.901-0.903   c-1.056-0.692-1.653-1.123-2.678-1.799c-1.185-0.781-0.417-1.21,0.258-1.911c0.177-0.184,3.247-2.977,3.307-3.23   c0.007-0.032,0.015-0.15-0.056-0.212s-0.174-0.041-0.248-0.024c-0.106,0.024-1.793,1.139-5.062,3.345   c-0.479,0.329-0.913,0.489-1.302,0.481c-0.428-0.009-1.252-0.242-1.865-0.442c-0.751-0.244-1.349-0.374-1.297-0.788   c0.027-0.216,0.324-0.437,0.892-0.663c3.498-1.524,5.831-2.529,6.998-3.015c3.333-1.386,4.025-1.627,4.477-1.635   C17.472,7.214,17.608,7.681,17.562,8.161z"/>
+                        </g>
+                    </svg>
+                </span></a>
+                <a href=""><span>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="512" height="512">
+                        <g>
+                            <path d="M9.25,14.5C8.561,14.5,8,13.939,8,13.25C8,12.561,8.561,12,9.25,12c0.689,0,1.25,0.561,1.25,1.25   C10.5,13.939,9.939,14.5,9.25,14.5z"/>
+                            <path d="M14.97,16.095c0.127,0.127,0.126,0.332,0,0.458c-0.853,0.852-2.488,0.918-2.969,0.918c-0.481,0-2.116-0.066-2.968-0.918   c-0.127-0.127-0.127-0.331,0-0.458c0.127-0.127,0.331-0.127,0.458,0c0.538,0.538,1.688,0.728,2.51,0.728   c0.822,0,1.972-0.191,2.511-0.729C14.639,15.968,14.844,15.968,14.97,16.095z"/>
+                            <path d="M16,13.25c0,0.69-0.561,1.25-1.25,1.25c-0.69,0-1.25-0.561-1.25-1.25c0-0.689,0.561-1.25,1.25-1.25   C15.439,12,16,12.561,16,13.25z"/>
+                            <path d="M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M18.957,13.599   c0.027,0.173,0.041,0.348,0.041,0.526c0,2.692-3.134,4.875-7,4.875c-3.866,0-7-2.183-7-4.875c0-0.179,0.015-0.355,0.042-0.529   C4.431,13.322,4.006,12.711,4.006,12c0-0.967,0.783-1.75,1.75-1.75c0.47,0,0.896,0.186,1.21,0.488   c1.212-0.873,2.886-1.431,4.749-1.483l0.89-4.185c0.017-0.081,0.066-0.152,0.135-0.197c0.069-0.045,0.154-0.061,0.235-0.044   l2.908,0.618C16.088,5.036,16.509,4.75,17,4.75c0.69,0,1.25,0.56,1.25,1.25S17.69,7.25,17,7.25c-0.67,0-1.213-0.529-1.244-1.191   l-2.604-0.554l-0.797,3.75c1.836,0.064,3.484,0.622,4.68,1.485c0.315-0.303,0.742-0.491,1.214-0.491c0.967,0,1.75,0.783,1.75,1.75   C19.998,12.714,19.57,13.327,18.957,13.599z"/>
+                        </g>
+                    </svg>
+                </span></a>
+             </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
