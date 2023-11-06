@@ -21,7 +21,7 @@ class WorkExperienceController extends Controller
      */
     public function index()
     {
-        //
+        return  null;
     }
 
     /**
@@ -41,7 +41,7 @@ class WorkExperienceController extends Controller
         $credentials['employee_id'] = $employeeController->getEmployee()->id;
         $workExperience = WorkExperience::create($credentials);
         $workExperience = WorkExperience::with('employee')->find($workExperience->id);
-        return $workExperience;
+        return response(['workExperience'=> $workExperience]);
     }
 
     /**
@@ -52,7 +52,7 @@ class WorkExperienceController extends Controller
      */
     public function show(WorkExperience $workExperience)
     {
-        //
+        return null;
     }
 
     /**
@@ -71,7 +71,7 @@ class WorkExperienceController extends Controller
         });
         $workExperience->update($credentials);
         $workExperience->save;
-        return "updated successfully";
+        return response(['data'=>'up']);
     }
 
     /**
@@ -83,6 +83,7 @@ class WorkExperienceController extends Controller
     public function destroy(WorkExperience $workExperience)
     {
         $workExperience->delete();
-        return "deleted successfully";
+        return response(["message"=>"deleted successfully"]);
     }
+
 }

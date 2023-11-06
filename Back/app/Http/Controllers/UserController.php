@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     public function changePassword(ChangePasswordRequest $request){
-        
+
         if (!Hash::check($request->input('old_password'), $this->user->password)) {
             return "Password is incorrect!";
         }
@@ -32,7 +32,7 @@ class UserController extends Controller
         ]);
         $this->user->save();
         return "password has been changed";
-        
+
     }
 
     public function changeEmail(ChangeEmailRequest $request){
@@ -47,7 +47,7 @@ class UserController extends Controller
     }
 
     public function completeProfile(CompletProfileRequest $request){
-        
+
         $user = JWTAuth::user();
         $user = User::with('role')->find($user->id);
         $role = $user->role_id;
@@ -74,7 +74,7 @@ class UserController extends Controller
     }
 
     public function updateProfile(UpdateProfileRequest $request){
-        
+
         $user = JWTAuth::user();
         $user = User::with('role','employee','company')->find($user->id);
         $role = $user->role_id;

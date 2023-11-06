@@ -10,3 +10,7 @@ function toggleFilter(){
     let element = document.querySelector('.results-displayer > div > div');
     element.classList.toggle('open');
 }
+
+console.log(Promise);
+
+

@@ -7,16 +7,11 @@ use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Controllers\CompanyController;
-use App\Http\Requests\AuthRequests\CompletProfileRequest;
 use App\Http\Requests\AuthRequests\CreateEmployeeRequest;
 use App\Http\Requests\AuthRequests\InitializeRoleRequest;
 use App\Http\Requests\AuthRequests\RegistrationRequest;
-use App\Http\Resources\UserResource;
-use App\Models\Employee;
 
 class AuthController extends Controller
 {
@@ -62,16 +57,16 @@ class AuthController extends Controller
         $role = $request->input('role');
         $user = JWTAuth::user();
         if(($role != 2 && $role !=3 ) || $user->role){
-            return response()->json(['action not allowed'],401);
+            return response()->json(['invalid role'],400);
         }
 
         $user->role()->associate($role);
-        $user->save();
+        $user = $user->save();
 
         return response()->json([
             'message'=>'done',
-            'role'=>$user->role
-        ]);
+            'user'=>$user
+        ], 200);
 
     }
 
@@ -120,7 +115,7 @@ class AuthController extends Controller
                 'access_token' => $token,
                 'token_type' => 'bearer',
                 'expires_in' => auth()->factory()->getTTL() * 60
-            ], 
+            ],
             'user'=>JWTAuth::user()
         ]);
     }
@@ -132,8 +127,8 @@ class AuthController extends Controller
         $email = request('email');
 
         DB::table('password_reset_tokens')->insert([
-            'email' => $email, 
-            'token' => $token, 
+            'email' => $email,
+            'token' => $token,
             'created_at' => Carbon::now()
         ]);
 
@@ -149,7 +144,7 @@ class AuthController extends Controller
 
         return response()->json(['message'=> 'check your email']);
     }
-    
+
     public function reset(){
         request()->validate([
             'password' => 'required|string|min:6|confirmed',
@@ -158,7 +153,7 @@ class AuthController extends Controller
 
         $updatePassword = DB::table('password_reset_tokens')
                             ->where([
-                              'email' => request('email'), 
+                              'email' => request('email'),
                               'token' => request('token')
                             ])
                             ->first();
@@ -171,7 +166,7 @@ class AuthController extends Controller
                     ->update(['password' => Hash::make(request('password'))]);
 
         DB::table('password_reset_tokens')->where(['email'=> request('email')])->delete();
- 
+
         return response()->json(['message'=>'Your password has been changed!']);
     }
 }

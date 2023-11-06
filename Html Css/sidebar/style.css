@@ -1,0 +1,61 @@
+/* #######################################*/
+/* ######### IN GENERAL AND COMMON #######*/
+/* #######################################*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.d-ja-center{
+    justify-content: center;
+    align-items: center;
+}
+.d-j-center{
+   justify-content: center;
+}
+.d-a-center{
+    align-items: center;
+}
+.column{
+    flex-direction: column;
+}
+.d-flex{
+    display: flex;
+}
+.logo-img-container  img{
+    height: 3em;
+}
+
+/* #########################*/
+/* ######## Sidebar ########*/
+/* #########################*/
+
+aside{
+    max-width: 15rem;
+    padding: 2em;
+    gap: 2em;
+    height: 100vh;
+    box-shadow: 0 0 10px #6c707950;
+}
+aside .logo-container{
+    gap: 1em;
+}
+aside .logo-container .logo-word{
+    font-size: 1.6em;
+    font-weight: bolder;
+}
+aside ul{
+    gap: 1em;
+    width: 100%;
+    list-style: none;
+}
+
+aside ul svg{
+    width: 1.4em;
+    height: 1.4em;
+}
+aside ul li{
+    gap: 1em;
+}

@@ -12,14 +12,14 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class CompanyController extends Controller
 {
-    public static $company;
+    private static $company;
 
     public function __construct()
     {
         self::$company = User::with('company')->find(JWTAuth::user()->id)->company;
     }
 
-    public function getCompany(){
+    public static function getCompany(){
         return self::$company;
     }
     /**
@@ -51,7 +51,7 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public static function store(CompletProfileRequest $request)
-    {   
+    {
         $credentials = $request->only(
             'name',
             'email',

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-position: center center;
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        .auth-container{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 255, 0.386);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-container{
+            background-color: white;
+            padding: 2em 1em;
+            min-width: 350px;
+            width: 30%;
+        }
+        .form-container form{
+            width: 100%;
+            padding:3em 2em 0;
+            display: flex;
+            flex-direction: column;
+            gap:1em;
+        }
+        .form-container form>input{
+            width: 100% !important;
+            padding: 1em;
+            border: 2px solid grey;
+            border-radius: .3em;
+            font-size: 1em;
+            font-weight: 600;
+            transform: scale(1);
+            transition: all .3s ease;
+        }
+        .form-container form> input:focus{
+            transform: scale(1.05);
+            outline: none;
+        }
+        .form-container form> button{
+            padding: .8em 0;
+        }
+        .form-container form p{
+            font-style: italic;
+        }
+        .form-container form span{
+            cursor: pointer;
+            font-weight: bold;
+            font-style: normal;
+        }
+        h1{
+            text-align: center;
+            color: #4640DE;
+        }
+        .form-header{
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+            align-items: center;
+        }
+        .form-header img{
+            height: 4em;
+        }
+        .d-none{
+            display: none !important;
+        }
+    </style>
+</head>
+<body style="background-image: url(./pexels-alexander-suhorucov-6457515.jpg);">
+    <div class="auth-container">
+        <div class="form-container" id="register-form-container">
+            <div class="form-header"> 
+                <img src="./Group2.png" alt="">
+                <h1>Sign Up</h1>
+            </div>
+            <form action="">
+                <input type="text" placeholder="User name">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <input type="password" placeholder="Repeat Password">
+                <p>Already have an account? <span onclick="togglePages('login')">Login</span></p>
+                <button class="button1">hello</button>
+            </form>
+        </div>
+        <div class="form-container d-none" id="login-form-container">
+            <div class="form-header"> 
+                <img src="./Group2.png" alt="">
+                <h1>Login</h1>
+            </div>
+            <form action="">
+                <input type="text" placeholder="Username Or Email">
+                <input type="password" placeholder="Password">
+                <p>Do not have an account? <span onclick="togglePages('register')">Register</span></p>
+                <button class="button1">hello</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function togglePages(target){
+            const loginContainer = document.getElementById('login-form-container')
+            const registerContainer = document.getElementById('register-form-container')
+
+            if(target == "login"){
+                loginContainer.classList.remove('d-none')
+                registerContainer.classList.add('d-none')
+            }else if(target == "register"){
+                loginContainer.classList.add('d-none')
+                registerContainer.classList.remove('d-none')
+            }
+        }
+    </script>
+</body>
+</html>

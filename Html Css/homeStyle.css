@@ -1,3 +1,6 @@
+/* div, button{
+    border-radius: .5em;
+} */
 .landing-filter .big-title{
     text-align: center;
     font-size: 3em;
@@ -94,6 +97,35 @@
     color: #545458;
     font-size: .9em;
 }
+.results-displayer .search-results .header button{
+    background-color: #4540de13;
+    padding: .5em;
+    margin: .2em .2em 0em .2em;
+    border-radius: .5em;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    -ms-border-radius: .5em;
+    -o-border-radius: .5em;
+}
+.results-displayer .search-results .header button.active svg{
+    fill: #4640DE;
+}
+.results-displayer .search-results .header button svg{
+    fill: #4540de4d;
+}
+.results-displayer .search-results .items{
+    padding: 1em 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: space-between;
+}
+.results-displayer .search-results .items .job{
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 1em);
+    gap: 1em;
+}
 .results-displayer .search-results .items{
     padding: 2em 0;
     display: flex;
@@ -182,9 +214,14 @@
         display: flex;
         gap: 2em;
         justify-content: center;
-        padding: 1em;
+        padding: .5em;
+        border-radius: .3em;
         border: 1px solid grey;
-    } 
+        -webkit-border-radius: .3em;
+        -moz-border-radius: .3em;
+        -ms-border-radius: .3em;
+        -o-border-radius: .3em;
+} 
     .results-displayer > div{
         height: max-content;
     } 
