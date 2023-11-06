@@ -1,10 +1,15 @@
-<script setup>
+<script>
+import Auth from './views/Auth.vue';
+
+export default {
+  components :{
+    Auth
+  }
+}
 </script>
 
 <template>
-  <div>
-    <h1 class="w-full text-center text-3xl">Hello world</h1>
-  </div>
+   <router-view></router-view>
 </template>
 
 <style scoped>
