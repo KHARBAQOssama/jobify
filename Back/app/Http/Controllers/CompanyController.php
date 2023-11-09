@@ -67,7 +67,7 @@ class CompanyController extends Controller
         );
 
         $industry = null;
-        if($request->input('new_industry')){
+        if(!$request->input('industry_id') && $request->input('new_industry')){
             $industry = Industry::create(['name'=>$request->input('new_industry')]);
             $credentials['industry_id'] = $industry->id;
         }else{

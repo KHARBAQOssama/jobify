@@ -1,6 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Auth from '../views/Auth.vue';
+import Dashboard from '../views/Dashboard.vue';
 const routes = [
+  {
+    path: "/",
+    component: Dashboard,
+    name: "dashboard",
+  },
   {
     path: "/login",
     component: Auth,

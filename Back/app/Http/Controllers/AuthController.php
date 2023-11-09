@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\AuthRequests\CreateEmployeeRequest;
 use App\Http\Requests\AuthRequests\InitializeRoleRequest;
 use App\Http\Requests\AuthRequests\RegistrationRequest;
 
@@ -31,7 +30,7 @@ class AuthController extends Controller
         $credentials = $request->only(['email']);
         $credentials['password'] = Hash::make($request->input('password'));
 
-        $user = User::create($credentials);
+        User::create($credentials);
 
         return $this->login();
     }
@@ -57,7 +56,7 @@ class AuthController extends Controller
         $role = $request->input('role');
         $user = JWTAuth::user();
         if(($role != 2 && $role !=3 ) || $user->role){
-            return response()->json(['invalid role'],400);
+            return response()->json(['message'=>'invalid role'],400);
         }
 
         $user->role()->associate($role);
@@ -65,7 +64,7 @@ class AuthController extends Controller
 
         return response()->json([
             'message'=>'done',
-            'user'=>$user
+            'user' => User::with('role')->find(JWTAuth::user()->id)
         ], 200);
 
     }
@@ -77,7 +76,7 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        return response()->json(['user'=>User::with('role','company','employee')->find(auth()->user()->id)]);
     }
 
     /**

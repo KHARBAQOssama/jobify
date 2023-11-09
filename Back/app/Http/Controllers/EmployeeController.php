@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use App\Events\EmployeeCreated;
 use App\Models\User;
 use App\Models\Employee;
-use Illuminate\Http\Request;
 use App\Models\ContactInformation;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Http\Requests\AuthRequests\CompletProfileRequest;
 use App\Http\Requests\ProfileRequests\UpdateExpectedSalaryRequest;
 use App\Http\Requests\ProfileRequests\UpdateProfileRequest;
 use App\Http\Requests\ProfileRequests\UpdateSummaryRequest;
-use App\Models\ExpectedSalary;
 
 class EmployeeController extends Controller
 {
@@ -71,13 +69,13 @@ class EmployeeController extends Controller
             'address' => $request->input('address'),
         ])->first();
         if(!$contact_info){
-            $contact_info = ContactInformation::create(
+            $contact_info = ContactInformation::create([
                 $request->only(
-                    'email',
                     'phone_number',
                     'address',
-                )
-            );
+                ),
+                'email'=> auth()->user()->email
+            ]);
         }
         
         $credentials['contact_information_id'] = $contact_info->id;

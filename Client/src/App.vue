@@ -1,15 +1,23 @@
 <script>
-import Auth from './views/Auth.vue';
+import Alert from './components/Common/Alert.vue';
+import { mapActions } from 'vuex';
 
 export default {
   components :{
-    Auth
+    Alert
+  },
+  methods:{
+    ...mapActions('userStore',['getAuthUser']),
+  },
+  mounted(){
+    this.getAuthUser();
   }
 }
 </script>
 
 <template>
-   <router-view></router-view>
+  <Alert></Alert>
+  <router-view></router-view>
 </template>
 
 <style scoped>

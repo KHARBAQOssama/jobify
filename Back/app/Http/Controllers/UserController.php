@@ -62,14 +62,13 @@ class UserController extends Controller
             $user->employee()->associate($employee);
             $user->save();
         }else if($role == 3){
-            $controller = new CompanyController;
             $company = CompanyController::store($request);
             $user->company()->associate($company);
             $user->save();
         }else{
             return response()->json(['message'=>'not allowed'],401);
         }
-        return response()->json($user);
+        return response()->json(['user'=>$user]);
 
     }
 

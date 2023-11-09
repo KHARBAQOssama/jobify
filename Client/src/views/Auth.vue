@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-full flex gap-4">
     <Poster :text="'Boost Your Career'"/>
-    <FormContainer :type="type"/>
+    <FormContainer />
   </div> 
 </template>
 
@@ -13,12 +13,10 @@ export default {
     components: { Poster, FormContainer },
     data(){
       return {
-        type: null,
+        
       }
     },
-    created() {
-      this.type = this.$route.path.replace(/^\/+/g, '').replace(/-/g, ' ')
-    },
+    
 }
 </script>
 

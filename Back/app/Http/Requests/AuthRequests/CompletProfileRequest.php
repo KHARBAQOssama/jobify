@@ -26,37 +26,49 @@ class CompletProfileRequest extends FormRequest
     {
         $user = JWTAuth::user();
 
-        $commonRules = [
-            'phone_number' => 'nullable|string', 
-            'facebook' => 'nullable|string|url', 
-            'twitter' => 'nullable|string|url', 
-            'linkedin' => 'nullable|string|url', 
-            'image' => 'required|string', 
-        ];
+        // $commonRules = [
+        //     'phone_number' => 'nullable|string', 
+        //     'facebook' => 'nullable|string|url', 
+        //     'twitter' => 'nullable|string|url', 
+        //     'linkedin' => 'nullable|string|url', 
+        //     'image' => 'required|string', 
+        // ];
 
         if ($user->role_id == 3) {
-            return array_merge($commonRules, [
+            // return array_merge($commonRules, [
+            //     'name' => 'required|string',
+            //     'email' => 'nullable|email|unique:users,email',
+            //     'foundation_date' => 'required|date',
+            //     'description' => 'nullable|string',
+            //     'website' => 'required|url',
+            //     'company_size_id' => 'required|exists:company_sizes,id',
+            //     'industry_id' => 'nullable|exists:industries,id',
+            // ]);
+            return [
                 'name' => 'required|string',
-                'email' => 'nullable|email|unique:users,email',
                 'foundation_date' => 'required|date',
-                'description' => 'nullable|string',
-                'website' => 'required|url',
-                'company_size_id' => 'required|exists:company_sizes,id',
                 'industry_id' => 'nullable|exists:industries,id',
-            ]);
+            ];
         } elseif ($user->role_id == 2) {
-            return array_merge($commonRules, [
+            // return array_merge($commonRules, [
+            //     'first_name' => 'required|string',
+            //     'middle_name' => 'nullable|string',
+            //     'last_name' => 'nullable|string',
+            //     'birthday' => 'required|date',
+            //     'summary' => 'nullable|string',
+            //     'portfolio' => 'nullable|string|url',
+            //     'resume' => 'nullable|string',
+            //     'address'=>'nullable|string',
+            //     'email'=>'nullable|string',
+            //     'phone_number'=>'nullable|string',
+            // ]);
+            return [
                 'first_name' => 'required|string',
                 'middle_name' => 'nullable|string',
                 'last_name' => 'nullable|string',
                 'birthday' => 'required|date',
-                'summary' => 'nullable|string',
-                'portfolio' => 'nullable|string|url',
-                'resume' => 'nullable|string',
-                'address'=>'nullable|string',
-                'email'=>'nullable|string',
-                'phone_number'=>'nullable|string',
-            ]);
+                'occupation' => 'required|string'
+            ];
         }
         return [];
     }
