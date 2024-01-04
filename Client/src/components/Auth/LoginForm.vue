@@ -1,22 +1,60 @@
 <template>
-    <form action="" class="w-full py-4 gap-4 flex flex-col">
-          <input class="b bg-gray-100 p-3 w-full font-medium rounded-lg" placeholder="Email" type="email">
-          <input class="b bg-gray-100 p-3 w-full font-medium rounded-lg" placeholder="Password" type="password">
-          <p class="text-end text-sm">Forget Password ?</p>
-          <button class="text-white p-3 rounded-lg bg-blue-400">Login</button>
-          <p class="font-light text-sm">Do Not Have An Account? <span>Register</span></p>
+  <div
+    class="w-[50%] min-w-[320px] max-w-[500px] mx-auto bg-white flex flex-col items-center py-5 rounded-md"
+  >
+    <h1 class="max-w-[400px] text-start w-[90%] text-xl font-bold">Login</h1>
+    <form action @submit.prevent="handleSubmit" class="w-[90%] py-4 gap-4 px-2 flex flex-col">
+      <input
+        @focus="setMessage({})"
+        class="b bg-white border focus:border-blue-600 p-3 w-full max-w-[400px] m-auto font-medium rounded-lg"
+        v-model="credentials.email"
+        placeholder="Email"
+        type="email"
+      />
+      <input
+        @focus="setMessage({})"
+        class="b bg-white border focus:border-blue-600 p-3 w-full max-w-[400px] m-auto font-medium rounded-lg"
+        v-model="credentials.password"
+        placeholder="Password"
+        type="password"
+      />
+      <button
+        class="text-white p-3 rounded-lg bg-blue-300 w-full max-w-[400px] m-auto hover:bg-blue-500"
+      >Login</button>
+      <p class="font-light text-sm w-full max-w-[400px] m-auto">
+        Do Not Have An Account?
+        <RouterLink to="register" class="font-bold">Register</RouterLink>
+      </p>
     </form>
+  </div>
 </template>
 
 <script>
-export default {
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
-}
+export default {
+  data() {
+    return {
+      credentials: {
+        email: "",
+        password: ""
+      }
+    };
+  },
+  computed: {
+    ...mapGetters("userStore", { user: "getUser" })
+  },
+  methods: {
+    ...mapMutations("userStore", ["setUser", "setMessage"]),
+    ...mapActions("userStore", ["login"]),
+    async handleSubmit() {
+      // this.setUser(this.user);
+      let response = await this.login(this.credentials);
+      if (response.status === 200) this.$router.push("/");
+    }
+  }
+};
 </script>
 
 <style scoped>
-form{
-    min-width: 320px;
-    max-width: 420px;
-}
 </style>
