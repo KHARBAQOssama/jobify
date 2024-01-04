@@ -1,33 +1,32 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Auth from '../views/Auth.vue';
-import Dashboard from '../views/Dashboard.vue';
+import LoginForm from '../components/Auth/LoginForm.vue'
+import RegisterForm from '../components/Auth/RegisterForm.vue'
+import ChooseRoleForm from '../components/Auth/ChooseRoleForm.vue'
+import CompleteProfileForm from '../components/Auth/CompleteProfileForm.vue'
 const routes = [
   {
-    path: "/",
-    component: Dashboard,
-    name: "dashboard",
-  },
-  {
-    path: "/login",
+    path: "/auth",
     component: Auth,
-    name: "login-page",
+    children: [
+      {
+        path: "login",
+        component: LoginForm,
+      },
+      {
+        path: "register",
+        component: RegisterForm,
+      },
+      {
+        path: "choose-role",
+        component: ChooseRoleForm,
+      },
+      {
+        path: "complete-profile",
+        component: CompleteProfileForm,
+      },
+    ],
   },
-  {
-    path: "/register",
-    component: Auth,
-    name: "register-page",
-  },
-  {
-    path: "/choose-role",
-    component: Auth,
-    name: "choose-role-page",
-  },
-  {
-    path: "/complete-profile",
-    component: Auth,
-    name: "complete-profile-page",
-  },
-  
 ];
 const router = createRouter({
   history: createWebHistory(),
